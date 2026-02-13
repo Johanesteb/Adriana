@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cápsula del Tiempo</title>
+    <!-- Fuentes elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Contenedor para corazones flotantes -->
+    <div class="heart-container" id="heart-container"></div>
+
+    <!-- Música de fondo -->
+    <audio id="bg-music" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-control" class="music-btn">🎵 Reproducir canción</button>
+
+    <!-- Encabezado -->
+    <header class="hero">
+        <div class="hero-content fade-in">
+            <h1>Hola Adriana</h1>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Sección: Carta de Amor -->
+        <section id="carta" class="section fade-in">
+            <h2 class="section-title">Una nota para ti</h2>
+            <div class="love-letter">
+                <p>
+                    "No sabía que darte, asi que no se me ocurrio más que hacer esto, un espacio donde subi algunas de nuestras
+					fotos en los juegos y espero que se siga llenando, tambien hay un botoncito para reproducir una canción."
+                </p>
+                <span class="signature">Te quiero demasiado.</span>
+            </div>
+        </section>
+        
+        <!-- Sección: Galería de Fotos -->
+        <section id="galeria" class="section fade-in">
+            <h2 class="section-title">Nuestros Momentos</h2>
+            <div class="grid-gallery">
+                <!-- He puesto 8 espacios para las 8 fotos que enviaste -->
+                <div class="gallery-item"><img src="foto1.png" alt="Foto 1" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto2.png" alt="Foto 2" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto3.png" alt="Foto 3" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto4.png" alt="Foto 4" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto5.png" alt="Foto 5" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto6.png" alt="Foto 6" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto7.png" alt="Foto 7" onclick="openModal(this.src)"></div>
+            </div>
+        </section>
+
+        <!-- Sección: PDF -->
+        <section id="archivos" class="section fade-in">
+            <h2 class="section-title">Quise escribir algo...</h2>
+            <div class="pdf-card">
+                <h3>Descargar</h3>
+                <p>Haz clic en el botón de abajo para descargar lo que preparé.</p>
+                <a href="nuestra_historia.pdf" download class="btn-download">⬇️ Descargar</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para ampliar fotos -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <footer class="footer">
+        <p>Hecho con cariño &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

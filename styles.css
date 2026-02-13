@@ -1,0 +1,215 @@
+:root {
+    --primary-color: #ff8fab; 
+    --secondary-color: #fb6f92; 
+    --bg-color: #fff0f3; 
+    --text-color: #5c4033; 
+    --white: #ffffff;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Cabecera */
+.hero {
+    height: 60vh;
+    background: linear-gradient(rgba(255, 143, 171, 0.5), rgba(255, 143, 171, 0.3)), 
+                url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 900px;
+    margin: -60px auto 50px auto;
+    padding: 20px;
+    z-index: 10;
+    position: relative;
+}
+
+.section {
+    background: var(--white);
+    padding: 40px;
+    margin-bottom: 40px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+}
+
+/* Carta de Amor */
+.love-letter {
+    background: #fffcf2;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    text-align: left;
+    font-style: italic;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.02);
+}
+
+.signature {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+}
+
+/* Galería Grid */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    border-radius: 20px;
+    overflow: hidden;
+    height: 220px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* PDF Card */
+.pdf-card {
+    padding: 30px;
+    border: 2px dashed var(--primary-color);
+    border-radius: 20px;
+    background: #fafafa;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-download:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Corazones Flotantes */
+.heart-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    color: var(--primary-color);
+    opacity: 0.6;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* Música */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    background: var(--white);
+    color: var(--secondary-color);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 80vh;
+    border-radius: 10px;
+    margin-top: 5%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Animación Fade In */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--secondary-color);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+}
