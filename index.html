@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cápsula del Tiempo</title>
+    <title>Capsula del Tiempo</title>
     <!-- Fuentes elegantes -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -13,11 +13,11 @@
     <!-- Contenedor para corazones flotantes -->
     <div class="heart-container" id="heart-container"></div>
 
-    <!-- Música de fondo -->
+    <!-- Musica de fondo -->
     <audio id="bg-music" loop>
         <source src="cancion.mp3" type="audio/mpeg">
     </audio>
-    <button id="music-control" class="music-btn">🎵 Reproducir canción</button>
+    <button id="music-control" class="music-btn">?? Reproducir cancion</button>
 
     <!-- Encabezado -->
     <header class="hero">
@@ -28,23 +28,22 @@
 
     <main class="container">
 
-        <!-- Sección: Carta de Amor -->
+        <!-- Seccion: Carta de Amor -->
         <section id="carta" class="section fade-in">
             <h2 class="section-title">Una nota para ti</h2>
             <div class="love-letter">
                 <p>
-                    "No sabía que darte, asi que no se me ocurrio más que hacer esto, un espacio donde subi algunas de nuestras
-					fotos en los juegos y espero que se siga llenando, tambien hay un botoncito para reproducir una canción."
+                    "No sabia que darte, asi que no se me ocurrio mas que hacer esto, un espacio donde subi algunas de nuestras
+					fotos en los juegos y espero que se siga llenando, tambien hay un botoncito para reproducir una cancion."
                 </p>
                 <span class="signature">Te quiero demasiado.</span>
             </div>
         </section>
         
-        <!-- Sección: Galería de Fotos -->
+        <!-- Seccion: Galeria de Fotos -->
         <section id="galeria" class="section fade-in">
             <h2 class="section-title">Nuestros Momentos</h2>
             <div class="grid-gallery">
-                <!-- He puesto 8 espacios para las 8 fotos que enviaste -->
                 <div class="gallery-item"><img src="foto1.png" alt="Foto 1" onclick="openModal(this.src)"></div>
                 <div class="gallery-item"><img src="foto2.png" alt="Foto 2" onclick="openModal(this.src)"></div>
                 <div class="gallery-item"><img src="foto3.png" alt="Foto 3" onclick="openModal(this.src)"></div>
@@ -55,14 +54,24 @@
             </div>
         </section>
 
-        <!-- Sección: PDF -->
+        <!-- Seccion: PDF -->
         <section id="archivos" class="section fade-in">
             <h2 class="section-title">Quise escribir</h2>
+            
+            <!-- Primera descarga: La Carta -->
             <div class="pdf-card">
-                <h3>Descargar</h3>
-                <p>Haz clic en el botón de abajo para descargar algo...</p>
-                <a href="Carta.pdf" download class="btn-download">⬇️ Descargar</a>
+                <h3>Descargar Carta</h3>
+                <p>Haz clic en el boton de abajo para descargar algo...</p>
+                <a href="Carta.pdf" download class="btn-download">Descargar</a>
             </div>
+
+            <!-- Segunda descarga: Tarjeta de Robux -->
+            <div class="pdf-card" style="margin-top: 20px;">
+                <h3>Tarjeta de Robux</h3>
+                <p>Tus Robux...</p>
+                <a href="Robux.pdf" download class="btn-download">Robux</a>
+            </div>
+
         </section>
     </main>
 
@@ -73,7 +82,7 @@
     </div>
 
     <footer class="footer">
-        <p>Hecho con cariño &copy; 2026</p>
+        <p>Hecho con carino &copy; 2026</p>
     </footer>
 
     <script src="script.js"></script>

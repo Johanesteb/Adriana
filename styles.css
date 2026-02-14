@@ -17,7 +17,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Cabecera */
 .hero {
     height: 60vh;
     background: linear-gradient(rgba(255, 143, 171, 0.5), rgba(255, 143, 171, 0.3)), 
@@ -35,7 +34,6 @@ body {
     text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
 
-/* Contenedor principal */
 .container {
     max-width: 900px;
     margin: -60px auto 50px auto;
@@ -60,7 +58,6 @@ body {
     margin-bottom: 25px;
 }
 
-/* Carta de Amor */
 .love-letter {
     background: #fffcf2;
     padding: 30px;
@@ -80,7 +77,6 @@ body {
     color: var(--secondary-color);
 }
 
-/* Galería Grid */
 .grid-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -106,12 +102,13 @@ body {
     transform: scale(1.1);
 }
 
-/* PDF Card */
 .pdf-card {
     padding: 30px;
     border: 2px dashed var(--primary-color);
     border-radius: 20px;
     background: #fafafa;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .btn-download {
@@ -131,7 +128,6 @@ body {
     transform: translateY(-3px);
 }
 
-/* Corazones Flotantes */
 .heart-container {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -151,7 +147,6 @@ body {
     100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
 }
 
-/* Música */
 .music-btn {
     position: fixed;
     bottom: 20px;
@@ -167,7 +162,6 @@ body {
     font-weight: bold;
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -194,7 +188,6 @@ body {
     cursor: pointer;
 }
 
-/* Animación Fade In */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
