@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capsula del Tiempo</title>
-    <!-- Fuentes elegantes -->
+    <title>Nuestra Cápsula</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Contenedor para corazones flotantes -->
     <div class="heart-container" id="heart-container"></div>
 
-    <!-- Musica de fondo -->
     <audio id="bg-music" loop>
         <source src="cancion.mp3" type="audio/mpeg">
     </audio>
-    <button id="music-control" class="music-btn">Reproducir cancion</button>
+    <button id="music-control" class="music-btn">🎵 Música</button>
 
-    <!-- Encabezado -->
     <header class="hero">
         <div class="hero-content fade-in">
             <h1>Hola Adriana</h1>
@@ -28,62 +24,45 @@
 
     <main class="container">
 
-        <!-- Seccion: Carta de Amor -->
-        <section id="carta" class="section fade-in">
-            <h2 class="section-title">Una nota para ti</h2>
-            <div class="love-letter">
-                <p>
-                    "No sabia que darte, asi que no se me ocurrio mas que hacer esto, un espacio donde subi algunas de nuestras
-					fotos en los juegos y espero que se siga llenando, tambien hay un botoncito para reproducir una cancion."
-                </p>
-                <span class="signature">Te quiero demasiado.</span>
+        <!-- Sección: Nota Central -->
+        <section class="section note-section fade-in">
+            <div class="main-note">
+                <p>"Tengo la mente nublada últimamente, pero sigo seguro de lo que siento."</p>
+                <div class="divider">❤</div>
             </div>
         </section>
         
-        <!-- Seccion: Galeria de Fotos -->
+        <!-- Sección: Galería Mejorada -->
         <section id="galeria" class="section fade-in">
             <h2 class="section-title">Nuestros Momentos</h2>
             <div class="grid-gallery">
-                <div class="gallery-item"><img src="foto1.png" alt="Foto 1" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto2.png" alt="Foto 2" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto3.png" alt="Foto 3" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto4.png" alt="Foto 4" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto5.png" alt="Foto 5" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto6.png" alt="Foto 6" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto7.png" alt="Foto 7" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto1.png" alt="1" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto2.png" alt="2" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto3.png" alt="3" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto4.png" alt="4" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto5.png" alt="5" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto6.png" alt="6" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto7.png" alt="7" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto8.png" alt="8" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto9.png" alt="9" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto10.png" alt="10" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto11.png" alt="11" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto12.png" alt="12" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto13.png" alt="13" onclick="openModal(this.src)"></div>
             </div>
         </section>
 
-        <!-- Seccion: PDF -->
-        <section id="archivos" class="section fade-in">
-            <h2 class="section-title">Quise escribir</h2>
-            
-            <!-- Primera descarga: La Carta -->
-            <div class="pdf-card">
-                <h3>Descargar Carta</h3>
-                <p>Haz clic en el boton de abajo para descargar algo...</p>
-                <a href="Carta.pdf" download class="btn-download">Descargar</a>
-            </div>
-
-            <!-- Segunda descarga: Tarjeta de Robux -->
-            <div class="pdf-card" style="margin-top: 20px;">
-                <h3>Tarjeta de Robux</h3>
-                <p>Tus Robux...</p>
-                <a href="Robux.pdf" download class="btn-download">Robux</a>
-            </div>
-
-        </section>
     </main>
 
-    <!-- Modal para ampliar fotos -->
     <div id="modal" class="modal" onclick="closeModal()">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
     </div>
 
     <footer class="footer">
-        <p>Hecho con carino &copy; 2026</p>
+        <p>Para Adriana con cariño &copy; 2026</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
