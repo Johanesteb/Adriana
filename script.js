@@ -1,28 +1,26 @@
-// 1. Scroll Effect
+// 1. Efecto Scroll
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
     });
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.fade-in').forEach(f => observer.observe(f));
 
-// 2. Corazones Flotantes
+// 2. Corazones y hojas flotantes
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
-    heart.innerHTML = '❤️';
+    // Mezcla de corazones y hojas para el estilo menta
+    heart.innerHTML = Math.random() > 0.5 ? '❤️' : '🌿';
     heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-    heart.style.animationDuration = Math.random() * 2 + 4 + 's';
+    heart.style.fontSize = Math.random() * 15 + 10 + 'px';
+    heart.style.animationDuration = Math.random() * 3 + 4 + 's';
     
     document.getElementById('heart-container').appendChild(heart);
-    
-    setTimeout(() => heart.remove(), 6000);
+    setTimeout(() => heart.remove(), 7000);
 }
-setInterval(createHeart, 800);
+setInterval(createHeart, 900);
 
 // 3. Control de Música
 const music = document.getElementById('bg-music');

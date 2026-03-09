@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Cápsula</title>
+    <title>Nuestra Cápsula Menta</title>
+    <!-- Fuentes: Poppins y Dancing Script -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+    <!-- Partículas menta flotantes -->
     <div class="heart-container" id="heart-container"></div>
 
+    <!-- Música -->
     <audio id="bg-music" loop>
-        <source src="cancion.mp3" type="audio/mpeg">
+        <source src="Cancion2.mp3" type="audio/mpeg">
     </audio>
-    <button id="music-control" class="music-btn">🎵 Música</button>
+    <button id="music-control" class="music-btn">🎵 Reproducir Música</button>
 
     <header class="hero">
         <div class="hero-content fade-in">
@@ -24,15 +27,15 @@
 
     <main class="container">
 
-        <!-- Sección: Nota Central -->
+        <!-- Nota Central Actualizada -->
         <section class="section note-section fade-in">
             <div class="main-note">
-                <p>"Tengo la mente nublada últimamente, pero sigo seguro de lo que siento."</p>
-                <div class="divider">❤</div>
+                <p>"Gracias por compartir tus días conmigo a diario."</p>
+                <div class="divider">🌿</div>
             </div>
         </section>
         
-        <!-- Sección: Galería Mejorada -->
+        <!-- Galería Ampliada (15 Fotos) -->
         <section id="galeria" class="section fade-in">
             <h2 class="section-title">Nuestros Momentos</h2>
             <div class="grid-gallery">
@@ -49,18 +52,39 @@
                 <div class="gallery-item"><img src="foto11.png" alt="11" onclick="openModal(this.src)"></div>
                 <div class="gallery-item"><img src="foto12.png" alt="12" onclick="openModal(this.src)"></div>
                 <div class="gallery-item"><img src="foto13.png" alt="13" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto14.png" alt="14" onclick="openModal(this.src)"></div>
+                <div class="gallery-item"><img src="foto15.png" alt="15" onclick="openModal(this.src)"></div>
+            </div>
+        </section>
+
+        <!-- Sección de Descargas (Un dibujito y Cupón) -->
+        <section id="descargas" class="section fade-in">
+            <h2 class="section-title">Detalles para ti</h2>
+            <div class="download-container">
+                <div class="pdf-card">
+                    <h3>Un dibujito</h3>
+                    <p>Haz clic para descargar...</p>
+                    <a href="Dibujo.pdf" download class="btn-download">⬇️ Descargar Dibujito</a>
+                </div>
+
+                <div class="pdf-card">
+                    <h3>Tu Cupón Especial</h3>
+                    <p>Un pequeño regalo canjeable cuando quieras...</p>
+                    <a href="Cupon.pdf" download class="btn-download">⬇️ Descargar Cupón</a>
+                </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Modal Fotos -->
     <div id="modal" class="modal" onclick="closeModal()">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
     </div>
 
     <footer class="footer">
-        <p>Para Adriana con cariño &copy; 2026</p>
+        <p>Hecho con cariño para Adriana &copy; 2026</p>
     </footer>
 
     <script src="script.js"></script>
