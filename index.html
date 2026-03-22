@@ -3,89 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Cápsula Menta</title>
-    <!-- Fuentes: Poppins y Dancing Script -->
+    <title>Nuestra Conexión</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Partículas menta flotantes -->
-    <div class="heart-container" id="heart-container"></div>
-
-    <!-- Música -->
-    <audio id="bg-music" loop>
-        <source src="Cancion2.mp3" type="audio/mpeg">
-    </audio>
-    <button id="music-control" class="music-btn">🎵 Reproducir Música</button>
-
-    <header class="hero">
-        <div class="hero-content fade-in">
-            <h1>Hola Adriana</h1>
+    <!-- PANTALLA DE BLOQUEO (Clave) -->
+    <div id="password-overlay">
+        <div class="login-box">
+            <h2>Ingresa la clave...</h2>
+            <p class="hint">Pista: Lo que nos hizo reír mucho</p>
+            <input type="text" id="password-input" placeholder="Escribe aquí..." autocomplete="off">
+            <button onclick="checkPassword()">Entrar al mundo</button>
+            <p id="error-msg" class="error">Piénsalo bien... 👀</p>
         </div>
-    </header>
+    </div>
 
-    <main class="container">
+    <!-- CONTENIDO PRINCIPAL (Oculto inicialmente) -->
+    <div id="main-content" class="hidden">
+        <div class="star-container" id="star-container"></div>
 
-        <!-- Nota Central Actualizada -->
-        <section class="section note-section fade-in">
-            <div class="main-note">
-                <p>"Gracias por compartir tus días conmigo a diario."</p>
-                <div class="divider">🌿</div>
+        <audio id="bg-music" loop>
+            <source src="cancion2.mp3" type="audio/mpeg">
+        </audio>
+        <button id="music-control" class="music-btn">🎵 Música</button>
+
+        <header class="hero">
+            <div class="hero-content fade-in">
+                <h1>Hola Adriana</h1>
             </div>
-        </section>
-        
-        <!-- Galería Ampliada (15 Fotos) -->
-        <section id="galeria" class="section fade-in">
-            <h2 class="section-title">Nuestros Momentos</h2>
-            <div class="grid-gallery">
-                <div class="gallery-item"><img src="foto1.png" alt="1" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto2.png" alt="2" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto3.png" alt="3" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto4.png" alt="4" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto5.png" alt="5" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto6.png" alt="6" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto7.png" alt="7" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto8.png" alt="8" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto9.png" alt="9" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto10.png" alt="10" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto11.png" alt="11" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto12.png" alt="12" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto13.png" alt="13" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto14.png" alt="14" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="foto15.png" alt="15" onclick="openModal(this.src)"></div>
-            </div>
-        </section>
+        </header>
 
-        <!-- Sección de Descargas (Un dibujito y Cupón) -->
-        <section id="descargas" class="section fade-in">
-            <h2 class="section-title">Detalles para ti</h2>
-            <div class="download-container">
-                <div class="pdf-card">
-                    <h3>Un dibujito</h3>
-                    <p>Haz clic para descargar...</p>
-                    <a href="Dibujo.pdf" download class="btn-download">⬇️ Descargar Dibujito</a>
+        <main class="container">
+            <!-- Nota de Conexión -->
+            <section class="section note-section fade-in">
+                <div class="main-note">
+                    <p>"Me encanta todo lo que compartimos a diario, sin importar la hora del dia, el momento, quiero saber de ti."</p>
+                    <div class="divider">✨ ___ ✨</div>
                 </div>
-
-                <div class="pdf-card">
-                    <h3>Tu Cupón Especial</h3>
-                    <p>Un pequeño regalo canjeable cuando quieras...</p>
-                    <a href="Cupon.pdf" download class="btn-download">⬇️ Descargar Cupón</a>
+            </section>
+            
+            <!-- Galería (15 Fotos) -->
+            <section id="galeria" class="section fade-in">
+                <h2 class="section-title">Momentos que nos unen</h2>
+                <div class="grid-gallery">
+                    <!-- Del 1 al 15 -->
+                    <div class="gallery-item"><img src="foto1.png" alt="1" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto2.png" alt="2" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto3.png" alt="3" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto4.png" alt="4" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto5.png" alt="5" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto6.png" alt="6" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto7.png" alt="7" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto8.png" alt="8" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto9.png" alt="9" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto10.png" alt="10" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto11.png" alt="11" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto12.png" alt="12" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto13.png" alt="13" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto14.png" alt="14" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto15.png" alt="15" onclick="openModal(this.src)"></div>
+					<div class="gallery-item"><img src="foto16.png" alt="16" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto17.png" alt="17" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto18.png" alt="18" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto19.png" alt="19" onclick="openModal(this.src)"></div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-    </main>
+        <footer class="footer">
+            <p>Conectados por siempre &copy; 2026</p>
+        </footer>
+    </div>
 
     <!-- Modal Fotos -->
     <div id="modal" class="modal" onclick="closeModal()">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
     </div>
-
-    <footer class="footer">
-        <p>Hecho con cariño para Adriana &copy; 2026</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
