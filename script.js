@@ -29,10 +29,10 @@ function nextTheme() {
         icon.innerText = "✨ Nuestra Conexión ✨";
         footer.innerText = "Conectados por siempre © 2026";
     } else if (newTheme === 'pink') {
-        icon.innerText = "❤️ Con todo mi amor ❤️";
+        icon.innerText = "❤️ Te quiero mucho ❤️";
         footer.innerText = "Hecho con amor para ti © 2026";
     } else {
-        icon.innerText = "🌿 Un momento de paz 🌿";
+        icon.innerText = "🌿 Contigo siento paz 🌿";
         footer.innerText = "Para Adriana con cariño © 2026";
     }
     document.getElementById('particle-container').innerHTML = '';
