@@ -9,20 +9,16 @@
 </head>
 <body data-theme="dark">
 
-    <!-- PANTALLA DE ENTRADA -->
     <div id="splash-screen">
         <div class="splash-box">
             <h1 class="splash-text">Me Encantas</h1>
-            <!-- La imagen que me pasaste debe llamarse boton.png -->
             <img src="boton.png" alt="Entrar" id="enter-btn" onclick="enterSite()">
             <p class="tap-hint">Haz clic en nosotros para entrar</p>
         </div>
     </div>
 
-    <!-- BOTÓN PARA CAMBIAR ESTILO (Flotante) -->
     <button id="theme-toggler" class="theme-btn hidden" onclick="nextTheme()">✨ Cambiar Estilo</button>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <div id="main-content" class="hidden">
         <div class="particle-container" id="particle-container"></div>
 
@@ -48,7 +44,6 @@
             <section id="galeria" class="section fade-in">
                 <h2 class="section-title">Nuestros Momentos</h2>
                 <div class="grid-gallery">
-                    <!-- Fotos del 1 al 24 -->
                     <div class="gallery-item"><img src="foto1.png" alt="1" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto2.png" alt="2" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto3.png" alt="3" onclick="openModal(this.src)"></div>

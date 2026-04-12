@@ -1,4 +1,3 @@
-// 1. Lógica de Entrada
 function enterSite() {
     const splash = document.getElementById('splash-screen');
     const content = document.getElementById('main-content');
@@ -13,7 +12,6 @@ function enterSite() {
     }, 1000);
 }
 
-// 2. Cambio de Temas
 let themes = ['dark', 'pink', 'mint'];
 let currentThemeIndex = 0;
 
@@ -38,7 +36,6 @@ function nextTheme() {
     document.getElementById('particle-container').innerHTML = '';
 }
 
-// 3. Sistema de Partículas
 function createParticles() {
     const container = document.getElementById('particle-container');
     if(!container) return;
@@ -59,7 +56,6 @@ function createParticles() {
 }
 setInterval(createParticles, 800);
 
-// 4. Inicialización
 function initApp() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
@@ -67,7 +63,6 @@ function initApp() {
     document.querySelectorAll('.fade-in').forEach(f => observer.observe(f));
 }
 
-// Control Música
 const music = document.getElementById('bg-music');
 const musicBtn = document.getElementById('music-control');
 musicBtn.addEventListener('click', () => {
@@ -75,6 +70,5 @@ musicBtn.addEventListener('click', () => {
     else { music.pause(); musicBtn.innerText = '🎵 Música'; }
 });
 
-// Modal
 function openModal(src) { document.getElementById("modal").style.display = "block"; document.getElementById("img01").src = src; }
 function closeModal() { document.getElementById("modal").style.display = "none"; }
