@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Conexión</title>
+    <title>Me Encantas</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body data-theme="dark"> <!-- Empieza en el tema oscuro por defecto -->
+<body data-theme="dark">
 
-    <!-- PANTALLA DE BLOQUEO -->
-    <div id="password-overlay">
-        <div class="login-box">
-            <h2>Ingresa la clave...</h2>
-            <p class="hint">Pista: Lo que nos hizo reír mucho</p>
-            <input type="text" id="password-input" placeholder="Escribe aquí..." autocomplete="off">
-            <button onclick="checkPassword()">Entrar al mundo</button>
-            <p id="error-msg" class="error">Piénsalo bien... 👀</p>
+    <!-- PANTALLA DE ENTRADA -->
+    <div id="splash-screen">
+        <div class="splash-box">
+            <h1 class="splash-text">Me Encantas</h1>
+            <!-- La imagen que me pasaste debe llamarse boton.png -->
+            <img src="boton.png" alt="Entrar" id="enter-btn" onclick="enterSite()">
+            <p class="tap-hint">Haz clic en nosotros para entrar</p>
         </div>
     </div>
 
@@ -49,7 +48,7 @@
             <section id="galeria" class="section fade-in">
                 <h2 class="section-title">Nuestros Momentos</h2>
                 <div class="grid-gallery">
-                    <!-- Fotos del 1 al 15 -->
+                    <!-- Fotos del 1 al 24 -->
                     <div class="gallery-item"><img src="foto1.png" alt="1" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto2.png" alt="2" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto3.png" alt="3" onclick="openModal(this.src)"></div>
@@ -65,6 +64,15 @@
                     <div class="gallery-item"><img src="foto13.png" alt="13" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto14.png" alt="14" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto15.png" alt="15" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto16.png" alt="16" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto17.png" alt="17" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto18.png" alt="18" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto19.png" alt="19" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto20.png" alt="20" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto21.png" alt="21" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto22.png" alt="22" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto23.png" alt="23" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto24.png" alt="24" onclick="openModal(this.src)"></div>
                 </div>
             </section>
         </main>
@@ -74,7 +82,6 @@
         </footer>
     </div>
 
-    <!-- Modal Fotos -->
     <div id="modal" class="modal" onclick="closeModal()">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">

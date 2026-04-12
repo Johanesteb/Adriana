@@ -1,14 +1,16 @@
-// 1. Lógica de la Clave
-function checkPassword() {
-    const input = document.getElementById('password-input').value.toLowerCase().trim();
-    if (input === "piensabienlo") {
-        document.getElementById('password-overlay').style.display = "none";
-        document.getElementById('main-content').classList.remove('hidden');
-        document.getElementById('theme-toggler').classList.remove('hidden');
+// 1. Lógica de Entrada
+function enterSite() {
+    const splash = document.getElementById('splash-screen');
+    const content = document.getElementById('main-content');
+    const themeBtn = document.getElementById('theme-toggler');
+    
+    splash.style.opacity = "0";
+    setTimeout(() => {
+        splash.style.display = "none";
+        content.classList.remove('hidden');
+        themeBtn.classList.remove('hidden');
         initApp();
-    } else {
-        document.getElementById('error-msg').style.display = "block";
-    }
+    }, 1000);
 }
 
 // 2. Cambio de Temas
@@ -20,7 +22,6 @@ function nextTheme() {
     const newTheme = themes[currentThemeIndex];
     document.body.setAttribute('data-theme', newTheme);
     
-    // Cambiar iconos y partículas según el tema
     const icon = document.getElementById('theme-icon');
     const footer = document.getElementById('footer-text');
     
@@ -34,20 +35,17 @@ function nextTheme() {
         icon.innerText = "🌿 Un momento de paz 🌿";
         footer.innerText = "Para Adriana con cariño © 2026";
     }
-    
-    // Reiniciar partículas
     document.getElementById('particle-container').innerHTML = '';
 }
 
-// 3. Sistema de Partículas Dinámicas
+// 3. Sistema de Partículas
 function createParticles() {
     const container = document.getElementById('particle-container');
+    if(!container) return;
     const theme = document.body.getAttribute('data-theme');
-    
     const p = document.createElement('div');
     p.classList.add('particle');
     
-    // Qué dibujo sale según el tema
     if(theme === 'dark') p.innerHTML = '⭐';
     else if(theme === 'pink') p.innerHTML = '❤️';
     else p.innerHTML = '🌿';
