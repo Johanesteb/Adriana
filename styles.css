@@ -1,109 +1,109 @@
+/* --- VARIABLES POR DEFECTO (TEMA OSCURO / CONEXIÓN) --- */
 :root {
-    --bg-dark: #0f172a; /* Azul medianoche */
-    --accent-gold: #fde047; /* Oro brillante */
-    --soft-white: #f1f5f9;
-    --card-bg: rgba(255, 255, 255, 0.05); /* Cristal traslúcido */
-    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --bg-main: #0f172a;
+    --accent: #fde047; /* Oro */
+    --text: #f1f5f9;
+    --card: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* --- TEMA ROSA ROMÁNTICO --- */
+[data-theme="pink"] {
+    --bg-main: #fff0f3;
+    --accent: #fb6f92;
+    --text: #5c4033;
+    --card: #ffffff;
+    --border: #ff8fab;
+    --shadow: 0 10px 30px rgba(251, 111, 146, 0.2);
+}
+
+/* --- TEMA VERDE MENTA --- */
+[data-theme="mint"] {
+    --bg-main: #f0fdfa;
+    --accent: #489b8a;
+    --text: #2d3748;
+    --card: #ffffff;
+    --border: #a7f3d0;
+    --shadow: 0 10px 30px rgba(72, 155, 138, 0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.8s ease, color 0.8s ease; }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--soft-white);
+    background-color: var(--bg-main);
+    color: var(--text);
     overflow-x: hidden;
 }
 
-/* --- LOGIN / PANTALLA DE CLAVE --- */
+/* PANTALLA DE BLOQUEO */
 #password-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg-dark);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 9999; transition: opacity 1s ease;
+    background: #0f172a; display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
 }
-
 .login-box {
     text-align: center; background: rgba(255,255,255,0.03);
-    padding: 50px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
+    padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px); color: white;
 }
+.login-box h2 { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #fde047; }
+#password-input { padding: 12px; border-radius: 50px; border: none; text-align: center; margin-top: 10px; }
+.login-box button { margin-top: 15px; padding: 10px 25px; border-radius: 50px; border: none; background: #fde047; cursor: pointer; font-weight: bold; }
+.error { color: #ff4d4d; margin-top: 10px; display: none; }
 
-.login-box h2 { font-family: 'Dancing Script', cursive; font-size: 2.5rem; margin-bottom: 10px; color: var(--accent-gold); }
-.hint { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; }
-
-#password-input {
-    padding: 12px 20px; border-radius: 50px; border: none; width: 250px;
-    background: rgba(255,255,255,0.1); color: white; text-align: center; font-size: 1.1rem; outline: none;
+/* BOTÓN FLOTANTE MAGIA */
+.theme-btn {
+    position: fixed; top: 20px; right: 20px; z-index: 5000;
+    padding: 10px 20px; border-radius: 50px; border: 2px solid var(--accent);
+    background: var(--bg-main); color: var(--accent); font-weight: bold;
+    cursor: pointer; box-shadow: var(--shadow);
 }
+.theme-btn:hover { transform: scale(1.1); }
 
-.login-box button {
-    display: block; margin: 20px auto 0; padding: 10px 30px;
-    border-radius: 50px; border: none; background: var(--accent-gold);
-    color: var(--bg-dark); font-weight: bold; cursor: pointer; transition: 0.3s;
-}
-
-.login-box button:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--accent-gold); }
-.error { color: #ff4d4d; margin-top: 15px; display: none; font-size: 0.9rem; }
-
-/* --- CONTENIDO PRINCIPAL --- */
+/* CONTENIDO */
 .hidden { display: none; }
 
 .hero {
     height: 40vh; display: flex; align-items: center; justify-content: center;
-    background: radial-gradient(circle, rgba(253, 224, 71, 0.1) 0%, transparent 70%);
 }
+.hero h1 { font-family: 'Dancing Script', cursive; font-size: clamp(3rem, 10vw, 5rem); color: var(--accent); }
 
-.hero h1 { font-family: 'Dancing Script', cursive; font-size: 5rem; color: var(--accent-gold); text-shadow: 0 0 20px rgba(253, 224, 71, 0.5); }
-
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
 .section {
-    background: var(--card-bg); padding: 40px; margin-bottom: 40px;
-    border-radius: 40px; border: 1px solid rgba(255,255,255,0.05);
-    backdrop-filter: blur(5px); text-align: center;
+    background: var(--card); padding: 40px; margin-bottom: 30px;
+    border-radius: 40px; border: 2px solid var(--border);
+    box-shadow: var(--shadow); text-align: center;
 }
 
-.main-note p { font-family: 'Dancing Script', cursive; font-size: 2.2rem; line-height: 1.3; }
-.divider { margin-top: 20px; color: var(--accent-gold); letter-spacing: 3px; font-weight: bold; }
+.main-note p { font-family: 'Dancing Script', cursive; font-size: 2.2rem; }
+.divider { color: var(--accent); margin-top: 15px; font-weight: bold; }
 
-.section-title { font-family: 'Dancing Script', cursive; font-size: 3rem; margin-bottom: 30px; color: var(--accent-gold); }
+.grid-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.gallery-item { border-radius: 25px; overflow: hidden; height: 350px; cursor: pointer; transition: 0.5s; border: 1px solid var(--border); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+.gallery-item:hover { transform: translateY(-10px); box-shadow: 0 10px 25px var(--accent); border-color: var(--accent); }
 
-/* Galería de Conexión */
-.grid-gallery {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;
+/* PARTÍCULAS */
+.particle-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.particle { position: absolute; animation: floatParticle var(--d) infinite linear; opacity: 0.6; }
+@keyframes floatParticle {
+    0% { transform: translateY(110vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-.gallery-item {
-    border-radius: 20px; overflow: hidden; height: 380px; cursor: pointer;
-    border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);
-}
+/* MÚSICA */
+.music-btn { position: fixed; bottom: 25px; left: 25px; z-index: 1000; padding: 10px 20px; border-radius: 50px; border: none; background: var(--accent); color: var(--bg-main); font-weight: bold; cursor: pointer; }
 
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: 0.6s; }
-
-.gallery-item:hover { transform: scale(1.02) translateY(-10px); border-color: var(--accent-gold); }
-.gallery-item:hover img { filter: grayscale(0%); transform: scale(1.1); }
-
-/* Partículas Estrellas */
-.star-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-.star { position: absolute; background: white; border-radius: 50%; animation: twinkle var(--t) infinite ease-in-out; }
-
-@keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
-
-/* Música */
-.music-btn {
-    position: fixed; bottom: 30px; left: 30px; z-index: 1000;
-    padding: 12px 25px; border-radius: 50px; border: none;
-    background: var(--accent-gold); color: var(--bg-dark); font-weight: bold; cursor: pointer;
-}
-
-/* Modal */
-.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
-.modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; border-radius: 20px; margin-top: 40px; border: 2px solid var(--accent-gold); }
+/* MODAL */
+.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+.modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; border-radius: 20px; margin-top: 40px; border: 2px solid var(--accent); }
 .close { position: absolute; top: 20px; right: 40px; color: white; font-size: 50px; cursor: pointer; }
 
-/* Animaciones */
-.fade-in { opacity: 0; transform: translateY(20px); transition: 1.5s ease; }
+.fade-in { opacity: 0; transform: translateY(20px); transition: 1s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
+.footer { text-align: center; padding: 40px; font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--accent); }
 
-.footer { text-align: center; padding: 60px; font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--accent-gold); }
+@media (max-width: 768px) { .grid-gallery { grid-template-columns: 1fr; } }

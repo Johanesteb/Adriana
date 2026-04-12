@@ -1,78 +1,82 @@
 // 1. Lógica de la Clave
 function checkPassword() {
     const input = document.getElementById('password-input').value.toLowerCase().trim();
-    const overlay = document.getElementById('password-overlay');
-    const content = document.getElementById('main-content');
-    const error = document.getElementById('error-msg');
-
-    // LA CLAVE QUE PEDISTE
     if (input === "piensabienlo") {
-        overlay.style.opacity = "0";
-        setTimeout(() => {
-            overlay.style.display = "none";
-            content.classList.remove('hidden');
-            // Iniciar animaciones de entrada
-            triggerFadeIn();
-        }, 1000);
+        document.getElementById('password-overlay').style.display = "none";
+        document.getElementById('main-content').classList.remove('hidden');
+        document.getElementById('theme-toggler').classList.remove('hidden');
+        initApp();
     } else {
-        error.style.display = "block";
-        document.getElementById('password-input').value = "";
+        document.getElementById('error-msg').style.display = "block";
     }
 }
 
-// Permitir presionar "Enter" para entrar
-document.getElementById('password-input').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') checkPassword();
-});
+// 2. Cambio de Temas
+let themes = ['dark', 'pink', 'mint'];
+let currentThemeIndex = 0;
 
-// 2. Efecto de Estrellas
-function createStars() {
-    const container = document.getElementById('star-container');
-    if(!container) return;
-    for (let i = 0; i < 100; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        const size = Math.random() * 3 + 'px';
-        star.style.width = size;
-        star.style.height = size;
-        star.style.top = Math.random() * 100 + 'vh';
-        star.style.left = Math.random() * 100 + 'vw';
-        star.style.setProperty('--t', Math.random() * 3 + 2 + 's');
-        container.appendChild(star);
+function nextTheme() {
+    currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+    const newTheme = themes[currentThemeIndex];
+    document.body.setAttribute('data-theme', newTheme);
+    
+    // Cambiar iconos y partículas según el tema
+    const icon = document.getElementById('theme-icon');
+    const footer = document.getElementById('footer-text');
+    
+    if(newTheme === 'dark') {
+        icon.innerText = "✨ Nuestra Conexión ✨";
+        footer.innerText = "Conectados por siempre © 2026";
+    } else if (newTheme === 'pink') {
+        icon.innerText = "❤️ Con todo mi amor ❤️";
+        footer.innerText = "Hecho con amor para ti © 2026";
+    } else {
+        icon.innerText = "🌿 Un momento de paz 🌿";
+        footer.innerText = "Para Adriana con cariño © 2026";
     }
+    
+    // Reiniciar partículas
+    document.getElementById('particle-container').innerHTML = '';
 }
 
-// 3. Scroll Reveal
-function triggerFadeIn() {
-    createStars();
-    const faders = document.querySelectorAll('.fade-in');
+// 3. Sistema de Partículas Dinámicas
+function createParticles() {
+    const container = document.getElementById('particle-container');
+    const theme = document.body.getAttribute('data-theme');
+    
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    
+    // Qué dibujo sale según el tema
+    if(theme === 'dark') p.innerHTML = '⭐';
+    else if(theme === 'pink') p.innerHTML = '❤️';
+    else p.innerHTML = '🌿';
+    
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.fontSize = Math.random() * 20 + 10 + 'px';
+    p.style.setProperty('--d', Math.random() * 3 + 4 + 's');
+    
+    container.appendChild(p);
+    setTimeout(() => p.remove(), 6000);
+}
+setInterval(createParticles, 800);
+
+// 4. Inicialización
+function initApp() {
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-    faders.forEach(f => observer.observe(f));
+    document.querySelectorAll('.fade-in').forEach(f => observer.observe(f));
 }
 
-// 4. Control de Música
+// Control Música
 const music = document.getElementById('bg-music');
 const musicBtn = document.getElementById('music-control');
-
 musicBtn.addEventListener('click', () => {
-    if (music.paused) {
-        music.play();
-        musicBtn.innerText = '⏸️ Pausar';
-    } else {
-        music.pause();
-        musicBtn.innerText = '🎵 Música';
-    }
+    if (music.paused) { music.play(); musicBtn.innerText = '⏸️ Pausar'; }
+    else { music.pause(); musicBtn.innerText = '🎵 Música'; }
 });
 
-// 5. Modal Fotos
-function openModal(src) {
-    document.getElementById("modal").style.display = "block";
-    document.getElementById("img01").src = src;
-}
-function closeModal() {
-    document.getElementById("modal").style.display = "none";
-}
+// Modal
+function openModal(src) { document.getElementById("modal").style.display = "block"; document.getElementById("img01").src = src; }
+function closeModal() { document.getElementById("modal").style.display = "none"; }

@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-theme="dark"> <!-- Empieza en el tema oscuro por defecto -->
 
-    <!-- PANTALLA DE BLOQUEO (Clave) -->
+    <!-- PANTALLA DE BLOQUEO -->
     <div id="password-overlay">
         <div class="login-box">
             <h2>Ingresa la clave...</h2>
@@ -20,12 +20,15 @@
         </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL (Oculto inicialmente) -->
+    <!-- BOTÓN PARA CAMBIAR ESTILO (Flotante) -->
+    <button id="theme-toggler" class="theme-btn hidden" onclick="nextTheme()">✨ Cambiar Estilo</button>
+
+    <!-- CONTENIDO PRINCIPAL -->
     <div id="main-content" class="hidden">
-        <div class="star-container" id="star-container"></div>
+        <div class="particle-container" id="particle-container"></div>
 
         <audio id="bg-music" loop>
-            <source src="cancionnueva.mp3" type="audio/mpeg">
+            <source src="cancion4.mp3" type="audio/mpeg">
         </audio>
         <button id="music-control" class="music-btn">🎵 Música</button>
 
@@ -36,19 +39,17 @@
         </header>
 
         <main class="container">
-            <!-- Nota de Conexión -->
             <section class="section note-section fade-in">
                 <div class="main-note">
-                    <p>"Me encanta todo lo que compartimos a diario, sin importar la hora del dia, el momento, quiero saber de ti."</p>
-                    <div class="divider">✨ ___ ✨</div>
+                    <p id="phrase">"Tengo la mente nublada últimamente, pero sigo seguro de lo que siento. Gracias por compartir tus días conmigo a diario."</p>
+                    <div class="divider" id="theme-icon">✨ Nuestra Conexión ✨</div>
                 </div>
             </section>
             
-            <!-- Galería (15 Fotos) -->
             <section id="galeria" class="section fade-in">
-                <h2 class="section-title">Momentos que nos unen</h2>
+                <h2 class="section-title">Nuestros Momentos</h2>
                 <div class="grid-gallery">
-                    <!-- Del 1 al 15 -->
+                    <!-- Fotos del 1 al 15 -->
                     <div class="gallery-item"><img src="foto1.png" alt="1" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto2.png" alt="2" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto3.png" alt="3" onclick="openModal(this.src)"></div>
@@ -64,16 +65,12 @@
                     <div class="gallery-item"><img src="foto13.png" alt="13" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto14.png" alt="14" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto15.png" alt="15" onclick="openModal(this.src)"></div>
-					<div class="gallery-item"><img src="foto16.png" alt="16" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto17.png" alt="17" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto18.png" alt="18" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto19.png" alt="19" onclick="openModal(this.src)"></div>
                 </div>
             </section>
         </main>
 
         <footer class="footer">
-            <p>Conectados por siempre &copy; 2026</p>
+            <p id="footer-text">Conectados por siempre &copy; 2026</p>
         </footer>
     </div>
 
