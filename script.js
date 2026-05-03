@@ -1,3 +1,19 @@
+// CONFIGURACIÓN DE MÚSICA (Añade aquí tus canciones del repositorio)
+const playlist = ["cancion1.mp3", "cancion2.mp3", "cancion3.mp3", "cancion4.mp3"];
+let currentSongIndex = 0;
+const music = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-control');
+
+// Cargar primera canción al inicio
+music.src = playlist[currentSongIndex];
+
+function nextSong() {
+    currentSongIndex = (currentSongIndex + 1) % playlist.length;
+    music.src = playlist[currentSongIndex];
+    music.play();
+    musicBtn.innerText = '⏸️ Pausar';
+}
+
 function enterSite() {
     const splash = document.getElementById('splash-screen');
     const content = document.getElementById('main-content');
@@ -63,11 +79,15 @@ function initApp() {
     document.querySelectorAll('.fade-in').forEach(f => observer.observe(f));
 }
 
-const music = document.getElementById('bg-music');
-const musicBtn = document.getElementById('music-control');
 musicBtn.addEventListener('click', () => {
-    if (music.paused) { music.play(); musicBtn.innerText = '⏸️ Pausar'; }
-    else { music.pause(); musicBtn.innerText = '🎵 Música'; }
+    if (music.paused) { 
+        music.play(); 
+        musicBtn.innerText = '⏸️ Pausar'; 
+    }
+    else { 
+        music.pause(); 
+        musicBtn.innerText = '🎵 Música'; 
+    }
 });
 
 function openModal(src) { document.getElementById("modal").style.display = "block"; document.getElementById("img01").src = src; }

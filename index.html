@@ -22,10 +22,12 @@
     <div id="main-content" class="hidden">
         <div class="particle-container" id="particle-container"></div>
 
-        <audio id="bg-music" loop>
-            <source src="cancion4.mp3" type="audio/mpeg">
-        </audio>
-        <button id="music-control" class="music-btn">🎵 Música</button>
+        <!-- REPRODUCTOR DE MÚSICA ACTUALIZADO -->
+        <audio id="bg-music" loop></audio>
+        <div class="music-controls">
+            <button id="music-control" class="music-btn">🎵 Música</button>
+            <button id="next-control" class="music-btn" onclick="nextSong()">⏭️</button>
+        </div>
 
         <header class="hero">
             <div class="hero-content fade-in">
@@ -44,6 +46,7 @@
             <section id="galeria" class="section fade-in">
                 <h2 class="section-title">Nuestros Momentos</h2>
                 <div class="grid-gallery">
+                    <!-- Fotos del 1 al 26 -->
                     <div class="gallery-item"><img src="foto1.png" alt="1" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto2.png" alt="2" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto3.png" alt="3" onclick="openModal(this.src)"></div>
@@ -68,6 +71,8 @@
                     <div class="gallery-item"><img src="foto22.png" alt="22" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto23.png" alt="23" onclick="openModal(this.src)"></div>
                     <div class="gallery-item"><img src="foto24.png" alt="24" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto25.png" alt="25" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="foto26.png" alt="26" onclick="openModal(this.src)"></div>
                 </div>
             </section>
         </main>
