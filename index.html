@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Me Encantas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- NUEVO: estilos del mundo de cumpleaños (va siempre después de styles.css) -->
+    <link rel="stylesheet" href="css/cumple.css">
 </head>
 <body data-theme="dark">
 
-    <div id="splash-screen">
-        <div class="splash-box">
-            <h1 class="splash-text">Me Encantas</h1>
-            <img src="boton.png" alt="Entrar" id="enter-btn" onclick="enterSite()">
-            <p class="tap-hint">Haz clic en nosotros para entrar</p>
+    <div id="splash-screen" onclick="enterSite()">
+        <div class="arcade">
+            <div class="arcade-marcador">
+                <p>JUGADORES <span>2</span></p>
+                <p>R&Eacute;CORD <span>&infin;</span></p>
+            </div>
+
+            <h1 class="arcade-titulo">ME<br>ENCANTAS</h1>
+
+            <div class="corazon-pixel"></div>
+
+            <img src="img/boton.png" alt="Nosotros dos" class="arcade-sprite">
+
+            <p class="arcade-start">PRESIONA PARA EMPEZAR</p>
+
+            <!-- &#9999;&#65039; Cambia los nombres a tu gusto -->
+            <p class="arcade-credito">&copy; 2026 &nbsp; JOHITAN &amp; ADRIANA</p>
         </div>
     </div>
 
@@ -22,12 +36,21 @@
     <div id="main-content" class="hidden">
         <div class="particle-container" id="particle-container"></div>
 
+        <!-- NUEVO: partículas de fiesta (solo se ven en el cumpleaños) -->
+        <div class="particle-container oculto" id="particulas-cumple"></div>
+
         <!-- REPRODUCTOR DE MÚSICA ACTUALIZADO -->
         <audio id="bg-music" loop></audio>
         <div class="music-controls">
             <button id="music-control" class="music-btn">🎵 Música</button>
             <button id="next-control" class="music-btn" onclick="nextSong()">⏭️</button>
         </div>
+
+        <!-- NUEVO: menú superior para moverse entre los dos mundos -->
+        <nav class="nav-bar" id="menu-principal">
+            <button class="nav-btn activo" id="nav-inicio" onclick="irAInicio()">🏠 <span class="nav-txt">Inicio</span></button>
+            <button class="nav-btn" id="nav-cumple" onclick="irACumple()">🎂 <span class="nav-txt">Cumpleaños</span></button>
+        </nav>
 
         <header class="hero">
             <div class="hero-content fade-in">
@@ -47,46 +70,186 @@
                 <h2 class="section-title">Nuestros Momentos</h2>
                 <div class="grid-gallery">
                     <!-- Fotos del 1 al 26 -->
-                    <div class="gallery-item"><img src="foto1.png" alt="1" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto2.png" alt="2" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto3.png" alt="3" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto4.png" alt="4" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto5.png" alt="5" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto6.png" alt="6" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto7.png" alt="7" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto8.png" alt="8" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto9.png" alt="9" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto10.png" alt="10" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto11.png" alt="11" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto12.png" alt="12" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto13.png" alt="13" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto14.png" alt="14" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto15.png" alt="15" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto16.png" alt="16" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto17.png" alt="17" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto18.png" alt="18" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto19.png" alt="19" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto20.png" alt="20" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto21.png" alt="21" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto22.png" alt="22" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto23.png" alt="23" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto24.png" alt="24" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto25.png" alt="25" onclick="openModal(this.src)"></div>
-                    <div class="gallery-item"><img src="foto26.png" alt="26" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto1.png" alt="1" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto2.png" alt="2" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto3.png" alt="3" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto4.png" alt="4" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto5.png" alt="5" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto6.png" alt="6" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto7.png" alt="7" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto8.png" alt="8" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto9.png" alt="9" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto10.png" alt="10" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto11.png" alt="11" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto12.png" alt="12" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto13.png" alt="13" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto14.png" alt="14" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto15.png" alt="15" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto16.png" alt="16" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto17.png" alt="17" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto18.png" alt="18" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto19.png" alt="19" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto20.png" alt="20" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto21.png" alt="21" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto22.png" alt="22" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto23.png" alt="23" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto24.png" alt="24" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto25.png" alt="25" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto26.png" alt="26" onclick="openModal(this.src)"></div>
+					<div class="gallery-item"><img src="img/foto27.png" alt="27" onclick="openModal(this.src)"></div>
+                    <div class="gallery-item"><img src="img/foto28.png" alt="28" onclick="openModal(this.src)"></div>
                 </div>
             </section>
         </main>
+
+        <!-- ==========================================================
+             NUEVO: MUNDO DE CUMPLEAÑOS
+             ========================================================== -->
+        <div id="vista-cumple" class="oculto">
+
+            <header class="hero-cumple">
+                <p class="antetitulo">Me encantas, siempre lo harás.</p>
+                <h1>Feliz Cumpleaños</h1>
+                <p class="nombre-cumple">Adriana</p>
+                <ul class="luces">
+                    <li style="--luz:#ffd166; --retraso:0s"></li>
+                    <li style="--luz:#ff5d8f; --retraso:.3s"></li>
+                    <li style="--luz:#7bdff2; --retraso:.6s"></li>
+                    <li style="--luz:#b892ff; --retraso:.9s"></li>
+                    <li style="--luz:#9bf6a0; --retraso:1.2s"></li>
+                    <li style="--luz:#ffd166; --retraso:1.5s"></li>
+                    <li style="--luz:#ff5d8f; --retraso:1.8s"></li>
+                </ul>
+            </header>
+
+            <div class="container">
+
+                <!-- ====== 1. TU MENSAJE LARGO DE CUMPLEAÑOS ======
+                     ✏️ Escribe aquí lo que quieras.
+                     Cada párrafo nuevo va dentro de su propio <p>...</p>
+                -->
+                <section class="section carta-cumple fade-in">
+                    <h2 class="section-title">25/07/1997</h2>
+                    <div class="texto-carta">
+                        <p>
+						Hola Adriana, ¿Como estás? en verdad espero que te sientas bien, normalmente me gusta ser de los que a las 12:01 envian un mensaje de cumpleaños, unas felicitaciones y buenos deseos y eso es todo, pero tu mereces algo más
+						que solo un mensaje, por eso intento hacer cosas creativas como las que tu haces, aunque no soy bueno en lo artistico o en lo manual, tengo buenas ideas y esta pagina fue una de ellas,
+						empece subiendo algunas fotos de cuando jugabamos y ahora hasta canciones y secciones tiene, es como un album virtual solo de los dos jajaja, espero te haya gustado tu regalo y este pequeño complemento que quise hacer en la pagina
+						porque aunque a ti no te guste mucho tu fecha de cumpleaños, quiero que sientas que vales mucho y mereces algo especial.
+						</p>
+
+                        <p>
+						No dire muchas cosas que no te haya dicho antes, sabes todo lo que siento por ti, te lo he expresado de la mejor forma que mi yo ha podido, contigo me siento diferente que con cualquier otra persona, siento otro tipo de ambiente,
+						realmente siento paz, te lo dije, cuando dormiamos en llamada yo me sentia totalmente tranquilo y extraño mucho eso y se que tu támbien, me gusta empezar el dia escribiendote a ti, espero con asias tu mensaje de buenos días, espero el
+						momento de escuchar tu voz y verte en llamada, es como que aunque lo hacemos casi a diario y durante horas, yo siempro quiero más y más, y también cuando no estas te extraño mucho, me falta una parte, una parte que ahora es muy importante
+						en mi vida, porque en eso te convertiste en estos últimos 6 meses, te convertiste en mi mejor amiga, en la persona que más me ha escuchado en la vida, en la persona con la que mejor me la paso ya sea hablando, escuchando musica, jugando, bobeando
+						, en general haciendo cualquier cosa contigo se siente bien, te convertiste en esa persona de la cual me enamore profundamente. 
+						<p>
+						</p>
+						<p>
+						Me encanta cuando te veo sonreir. cuando me cuentas tus anécdotas de niña, cuando me hablas de tu familia, cuando te veo jugar con tus gatos, cuando peleamos bromeando, todo eso me encanta y no lo cambio por nada en el mundo,
+						ya te he dicho que eres demasiado hermosa, tus ojitos son demasiado bellos, tus mejillas no dejan de llamar mi atención y tus labios son perfectos.
+						
+						Ni hablar de lo graciosa que eres, tu humor y el mio se complementan muy bien, eres también tan inteligente, sabes de todo un poco, siempre sales con datos raros o con terminos que hasta inventados parecen, como ya te he mencionado tu parte creativa
+						es unica, tu eres unica, además ver como armabas tus mueblecitos o como pintabas me hace ver que si quieres algo, haces que eso cambie lo antes posible y eso me gusta, me encanta tu gusto musical, cada vez me robo más canciones de las tuyas aunque no 
+						te des cuenta. Estas llena de muchas cosas bonitas y aunque no eres perfecta, para mi lo eres.
+						</p>
+
+                        <p>
+						Y bueno pues para no extenderme me acorde que esto es una carta de feliz cumpleaños, un mensaje, no otra cosa, asi que Felices 29 años Adriana, ojalá tus 29 estén llenos de cosas bonitas y me dejes compartirlos contigo, que te pasen cosas muy buenas,
+						cosas que te llenen, que te hagan ser tu y sentirte tu. Que la vida te permita compartilos con las personas que quieres, que estes sonriendo asi bonito como lo haces y si te propones algo, aunque yo se que tu puedes lograrlo, que la vida te lo otorgue.
+						 Para cerrar el mensaje, te recuerdo que estoy para ti, en cualquier hora, en cualquier momento, si me necesitas, ahi estaré, FELIZ CUMPLEAÑOS, TE MERECES SOLO COSAS BONITAS.
+						</p>
+                    </div>
+                    <p class="firma">Te amo Adriana, lo sabes.</p>
+                </section>
+
+                <!-- ====== 2. EL REGALO (foto enmarcada) ====== -->
+                <section class="section fade-in">
+                    <h2 class="section-title">Tu regalo</h2>
+
+                    <figure class="cuadro">
+                        <div class="cuadro-marco">
+                            <div class="cuadro-paspartu">
+                                <img src="img/regalo.png" alt="Tu regalo de cumpleaños"
+                                     onclick="openModal(this.src)">
+                            </div>
+                        </div>
+                        <!-- ✏️ La placita dorada de abajo -->
+                        <figcaption class="cuadro-placa">Disfrutaloo</figcaption>
+                    </figure>
+
+                    <!-- ✏️ Frase que presenta las tres fotos -->
+                    <p class="intro-trio">Y así te vi estrenarlo</p>
+
+                    <div class="trio">
+                        <figure class="cuadro cuadro-mini">
+                            <div class="cuadro-marco">
+                                <div class="cuadro-paspartu">
+                                    <img src="img/regalo2.jpeg" alt="Armando el regalo"
+                                         onclick="openModal(this.src)">
+                                </div>
+                            </div>
+                            <!-- ✏️ Pie de foto -->
+                            <figcaption class="cuadro-pie">Armándolo</figcaption>
+                        </figure>
+
+                        <figure class="cuadro cuadro-mini">
+                            <div class="cuadro-marco">
+                                <div class="cuadro-paspartu">
+                                    <img src="img/regalo3.jpeg" alt="Usando el regalo"
+                                         onclick="openModal(this.src)">
+                                </div>
+                            </div>
+                            <figcaption class="cuadro-pie">Estrenándolo</figcaption>
+                        </figure>
+
+                        <figure class="cuadro cuadro-mini">
+                            <div class="cuadro-marco">
+                                <div class="cuadro-paspartu">
+                                    <img src="img/regalo4.jpeg" alt="Pintando"
+                                         onclick="openModal(this.src)">
+                                </div>
+                            </div>
+                            <figcaption class="cuadro-pie">Pintando</figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- ✏️ Tu mensaje sobre el regalo -->
+                    <p class="nota-regalo">Te regale ese caballete con su kitsito porque me gusta mucho cuando te pones creativa, como te conectas a tu mundo y haces cosas bonitas, unicas, realmente me entretengo mucho viendo como haces todas cosas, como tus velitas por ejemplo, como decoras en los juegos, siempre te dije que te quedaba todo muy lindo y te esmeras en los detalles por más absurda que sea lo que estas haciendo, enserio disfrutalo y dale color a esos lienzos como le has dado a mi vida.</p>
+                </section>
+
+                <!-- ====== 3. GALERÍA DEL CIELO ====== -->
+                <section id="cielo" class="section fade-in">
+                    <h2 class="section-title">Foticos del cielo</h2>
+                    <p class="intro-cielo">Me gusta mandarte una fotico diaria del cielo, sobre todo en las noches, porque pienso asi que de alguna forma estamos unidos, no estamos tan lejos como parece, podemos ver el mismo cielo los dos.</p>
+                    <div class="grid-cielo" id="grid-cielo"></div>
+                    <p class="nota-cielo">En verdad espero algún dia verlo juntos.</p>
+                </section>
+
+                <section class="section fade-in">
+                    <button class="btn-regalo btn-volver" onclick="irAInicio()">← Volver a nuestros momentos</button>
+                </section>
+
+            </div>
+        </div>
+        <!-- ====== FIN DEL MUNDO DE CUMPLEAÑOS ====== -->
 
         <footer class="footer">
             <p id="footer-text">Conectados por siempre &copy; 2026</p>
         </footer>
     </div>
 
+    <!-- NUEVO: capa donde cae el confeti -->
+    <div id="confeti-container"></div>
+
     <div id="modal" class="modal" onclick="closeModal()">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <!-- NUEVO: lógica del mundo de cumpleaños (va siempre después de script.js) -->
+    <script src="js/cumple.js"></script>
 </body>
 </html>

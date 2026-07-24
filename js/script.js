@@ -1,5 +1,5 @@
 // CONFIGURACIÓN DE MÚSICA (Añade aquí tus canciones del repositorio)
-const playlist = ["cancion1.mp3", "cancion2.mp3", "cancion3.mp3", "cancion4.mp3"];
+const playlist = ["audio/cancion1.mp3", "audio/cancion2.mp3", "audio/cancion3.mp3", "audio/cancion4.mp3", "audio/cancion5.mp3"];
 let currentSongIndex = 0;
 const music = document.getElementById('bg-music');
 const musicBtn = document.getElementById('music-control');
